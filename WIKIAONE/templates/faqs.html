@@ -29,17 +29,24 @@
             <p>Here are answers to some common questions about my stories.</p>
             <div id="faq-list" class="faq-list"></div>
             <h3>Ask a Question, or leave a message!</h3>
+            <p>Good and/or frequently asked questions will be added to this page. Other messages will be kept to heart, Anything is appreciated!</p>
             <form id="question-form" action="https://formspree.io/f/xaneyzgv" method="post">
-                <input type="text" id="question" placeholder="Your question">
-                <textarea id="additional-info" placeholder="Any additional information/Your personal message"></textarea>
-                <button type="submit">Submit</button>
-            </form>
+                <input type="text" id="question" name="question" placeholder="Your question" class="form-field">
+                <textarea id="additional-info" name="additionalInfo" placeholder="Any additional information --- Your personal message" class="form-field"></textarea>
+                <br/>
+                <button type="submit" id="send-button">SEND</button>
+            </form>            
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Your Name</p>
     </footer>
     <script>
+        document.getElementById('question-form').addEventListener('submit', function() {
+        setTimeout(() => {
+            this.reset();
+        }, 500); // Reset form after 500ms
+    });
         fetch('../JSON/faqs.json')
             .then(response => response.json())
             .then(data => {
@@ -54,25 +61,6 @@
                     faqList.appendChild(faqItem);
                 });
             });
-
-        document.getElementById('question-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const question = document.getElementById('question').value;
-            const additionalInfo = document.getElementById('additional-info').value;
-            // Send data to server or email using AJAX or fetch API
-            // For now, just log the data
-            console.log('Question:', question);
-            console.log('Additional Info:', additionalInfo);
-            // Example of sending data via email (requires backend setup)
-            // fetch('/send-email', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ question, additionalInfo })
-            // })
-            // .then(response => response.json())
-            // .then(data => console.log(data))
-            // .catch(error => console.error('Error:', error));
-        });
     </script>
 </body>
 </html>
