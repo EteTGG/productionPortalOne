@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Story 1 Title",
+        "summary": "A thrilling adventure about friendship and love.",
+        "episodes": [
+            {"title": "Episode 1: Introduction", "link": "#"},
+            {"title": "Episode 2: The Journey Begins", "link": "#"}
+        ]
+    },
+    {
+        "title": "Story 2 Title",
+        "summary": "A mysterious tale of secrets and revelations.",
+        "episodes": [
+            {"title": "Episode 1: The Mystery Unfolds", "link": "#"},
+            {"title": "Episode 2: Clues and Suspects", "link": "#"}
+        ]
+    }
+]

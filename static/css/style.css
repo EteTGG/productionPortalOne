@@ -1,0 +1,155 @@
+body {
+    font-family: 'Alata', sans-serif;
+    background-color: #fff0f5; /* Very faint pinkish white */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #c51077; /* Dark pinkish color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 80%;
+    border: 1px solid #c51077; /* Border for containers */
+}
+
+footer {
+    background-color: #c51077; /* Dark pinkish color */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Characters.html styles */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.character-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid #c51077; /* Border for character cards */
+}
+
+.character-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #c51077; /* Border for images */
+}
+
+/* Stories.html styles */
+.story-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.story-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 80%;
+    margin-bottom: 20px;
+    border: 1px solid #c51077; /* Border for story cards */
+}
+
+.story-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.story-card li {
+    margin-bottom: 10px;
+}
+
+.story-card a {
+    text-decoration: none;
+    color: #c51077; /* Dark pinkish color for links */
+}
+
+/* FAQs.html styles */
+.faq-list {
+    padding: 20px;
+}
+
+.faq-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border: 1px solid #c51077; /* Border for FAQ items */
+}
+
+.faq-item h4 {
+    margin-top: 0;
+}
+
+/* Updates.html styles */
+.update-list {
+    padding: 20px;
+}
+
+.update-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border: 1px solid #c51077; /* Border for update items */
+}
+
+.update-item h4 {
+    margin-top: 0;
+}
