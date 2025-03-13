@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Character 1 Name",
+        "description": "A brave and adventurous soul.",
+        "image": "character1.jpg"
+    },
+    {
+        "name": "Character 2 Name",
+        "description": "A mysterious and intriguing figure.",
+        "image": "character2.jpg"
+    }
+]

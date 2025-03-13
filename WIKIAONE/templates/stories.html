@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories</title>
+    <link rel="stylesheet" href="../static/CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>The Production Portal</h1>
+        <p>Behind the scenes, beyond the page.</p>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="characters.html">Characters</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="updates.html">Updates</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Stories</h2>
+            <p>Here you'll find summaries and episode guides for my stories.</p>
+            <div id="story-list" class="story-list"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Your Name</p>
+    </footer>
+    <script>
+        fetch('../JSON/stories.json')
+            .then(response => response.json())
+            .then(data => {
+                const storyList = document.getElementById('story-list');
+                data.forEach(story => {
+                    const storyCard = document.createElement('div');
+                    storyCard.classList.add('story-card');
+                    storyCard.innerHTML = `
+                        <h3>${story.title}</h3>
+                        <p>${story.summary}</p>
+                        <ul>
+                            ${story.episodes.map(episode => `<li><a href="${episode.link}">${episode.title}</a></li>`).join('')}
+                        </ul>
+                    `;
+                    storyList.appendChild(storyCard);
+                });
+            });
+    </script>
+</body>
+</html>
