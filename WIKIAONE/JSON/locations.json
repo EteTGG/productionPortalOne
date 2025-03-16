@@ -1,0 +1,19 @@
+[
+    {
+        "name": "City of Dreams",
+        "description": "A bustling metropolis filled with magic and wonder.",
+        "status": "Existent",
+        "planet": "Earth",
+        "universe": "Universe 2",
+        "dimension": "Main Plane"
+
+    },
+    {
+        "name": "The Dark Forest",
+        "description": "A mysterious and enchanted forest, home to ancient secrets.",
+        "status": "Unkwown",
+        "planet": "Earth",
+        "universe": "Universe 2",
+        "dimension": "Main Plane"
+    }
+]

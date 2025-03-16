@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories</title>
+    <title>News</title>
     <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
     <link rel="stylesheet" href="../static/CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,30 +54,27 @@
     </header>
     <main>
         <section>
-            <h2>Stories</h2>
-            <p>Here you'll find summaries and episode guides for my stories.</p>
-            <div id="story-list" class="story-list"></div>
+            <h2>News and Updates</h2>
+            <p>Stay up-to-date with the latest news about my stories.</p>
+            <div id="update-list" class="update-list"></div>
         </section>
     </main>
     <footer>
         <p>&copy; BookPage Productions™ - 2025</p>
     </footer>
     <script>
-        fetch('../JSON/stories.json')
+        fetch('../JSON/news.json')
             .then(response => response.json())
             .then(data => {
-                const storyList = document.getElementById('story-list');
-                data.forEach(story => {
-                    const storyCard = document.createElement('div');
-                    storyCard.classList.add('story-card');
-                    storyCard.innerHTML = `
-                        <h3>${story.title}</h3>
-                        <p>${story.summary}</p>
-                        <ul>
-                            ${story.episodes.map(episode => `<li><a href="${episode.link}">${episode.title}</a></li>`).join('')}
-                        </ul>
+                const updateList = document.getElementById('update-list');
+                data.forEach(update => {
+                    const updateItem = document.createElement('div');
+                    updateItem.classList.add('update-item');
+                    updateItem.innerHTML = `
+                        <h4>${update.title}</h4>
+                        <p>${update.content}</p>
                     `;
-                    storyList.appendChild(storyCard);
+                    updateList.appendChild(updateItem);
                 });
             });
     </script>

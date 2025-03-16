@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories</title>
+    <title>Comics Stories</title>
     <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
     <link rel="stylesheet" href="../static/CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,34 +50,36 @@
                     </ul>
                 </li>
             </ul>
-        </nav>        
+        </nav>
     </header>
     <main>
         <section>
-            <h2>Stories</h2>
-            <p>Here you'll find summaries and episode guides for my stories.</p>
-            <div id="story-list" class="story-list"></div>
+            <h2>Comics Stories</h2>
+            <p>Here you'll find summaries and episode guides for my comics stories.</p>
+            <div id="comics-story-list" class="story-list"></div>
         </section>
     </main>
-    <footer>
+    <footer style="position: relative;">
         <p>&copy; BookPage Productions™ - 2025</p>
     </footer>
     <script>
         fetch('../JSON/stories.json')
             .then(response => response.json())
             .then(data => {
-                const storyList = document.getElementById('story-list');
+                const comicsStoryList = document.getElementById('comics-story-list');
                 data.forEach(story => {
-                    const storyCard = document.createElement('div');
-                    storyCard.classList.add('story-card');
-                    storyCard.innerHTML = `
-                        <h3>${story.title}</h3>
-                        <p>${story.summary}</p>
-                        <ul>
-                            ${story.episodes.map(episode => `<li><a href="${episode.link}">${episode.title}</a></li>`).join('')}
-                        </ul>
-                    `;
-                    storyList.appendChild(storyCard);
+                    if (story.category === 'comics') {
+                        const storyCard = document.createElement('div');
+                        storyCard.classList.add('story-card');
+                        storyCard.innerHTML = `
+                            <h3>${story.title}</h3>
+                            <p>${story.summary}</p>
+                            <ul>
+                                ${story.episodes.map(episode => `<li><a href="${episode.link}">${episode.title}</a></li>`).join('')}
+                            </ul>
+                        `;
+                        comicsStoryList.appendChild(storyCard);
+                    }
                 });
             });
     </script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Profile</title>
+    <link rel="icon" type="image/x-icon" href="../../static/images/favicon.ico">
+    <link rel="stylesheet" href="../../static/CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url('../../static/images/newbanner.png'); background-size: cover; opacity: 95%; background-blend-mode: lighten; background-color: rgba(255, 255, 255, 0.527);">
+    <header>
+        <a href="../../index.html"><img width= 25% class="mainlogo" src="../../static/images/BookPageProductions_LogoVerticalOUTLINE.png" alt="BookPage Productions Logo"><a href="../../index.html"></a>
+        <p><b>The Production Portal</b> - Behind the scenes, beyond the page.</p>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">EXPLORE</a>
+                    <ul class="dropdown">
+                        <li><a href="../../community.html">Community</a></li>
+                        <li><a href="../../locations.html">Locations</a></li>
+                        <li><a href="../../chalign.html">Character Alignment</a></li>
+                        <li><a href="../../systems.html">Fictional Systems</a></li>
+                    </ul>
+                </li>
+                <li><a href="../characters.html">CHARACTERS</a>
+                    <ul class="dropdown">
+                        <li><a href="../char_main.html">Main Characters</a></li>
+                        <li><a href="../char_love.html">Love Interests</a></li>
+                        <li><a href="../char_support.html">Supporting Characters</a></li>
+                        <li><a href="../char_side.html">Side Characters</a></li>
+                        <li><a href="../char_background.html">Background Characters</a></li>
+                    </ul>
+                </li> 
+                <li><a href="../stories.html">STORIES</a>
+                    <ul class="dropdown">
+                        <li><a href="../stor_standalone.html">Standalone</a></li>
+                        <li><a href="../stor_series.html">Series</a></li>
+                        <li><a href="../stor_comics.html">Comics</a></li>
+                        <li><a href="../stor_other.html">Other</a></li>
+                    </ul>
+                </li>
+                <li><a href="../faqs.html">FAQS</a></li>
+                <li><a href="../news.html">NEWS</a>
+                    <ul class="dropdown">
+                        <li><a href="../news.html">Story Updates</a></li>
+                        <li><a href="../art.html">Art</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>        
+    </header>
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <div class="content">
+                <p>Short introduction summarizing the character’s role in the series.</p>
+            </div>
+            <div class="infobox">
+                <div class="tabs">
+                    <button class="tablinks active" onclick="openTab(event, 'Tab1')">Version 1</button>
+                    <button class="tablinks" onclick="openTab(event, 'Tab2')">Version 2</button>
+                </div>
+                <div id="Tab1" class="tabcontent active">
+                    <img src="../../static/images/character1.jpg" alt="Character Image Version 1">
+                </div>
+                <div id="Tab2" class="tabcontent">
+                    <img src="../../static/images/character2.jpg" alt="Character Image Version 2">
+                </div>
+                <div class="info">
+                    <p><strong>Full Name:</strong> [Full Name]</p>
+                    <p><strong>Age:</strong> [Age]</p>
+                    <p><strong>Status:</strong> [Status]</p>
+                    <p><strong>Other Names/Aliases:</strong> [Aliases]</p>
+                    <p><strong>Occupation:</strong> [Occupation]</p>
+                    <p><strong>Astonishtone:</strong> [Astonishtone]</p>
+                    <p><strong>Affiliations:</strong> [Affiliations]</p>
+                    <p><strong>First Appearance:</strong> [Episode and Season]</p>
+                    <p><strong>Main Universe:</strong> [Main Universe]</p>
+                    <p><strong>Current Universe:</strong> [Current Universe]</p>
+                    <p><strong>Reality Number:</strong> [Reality Number]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add other sections here (Appearance, Personality, Abilities, etc.) -->
+
+    </main>
+    <footer>
+        <p>&copy; BookPage Productions™ - 2025</p>
+    </footer>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+</html>

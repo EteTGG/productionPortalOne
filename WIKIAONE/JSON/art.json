@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Character Portrait",
+        "description": "A detailed portrait of a main character.",
+        "image": "portrait1.jpg"
+    },
+    {
+        "title": "Scene Illustration",
+        "description": "An illustration of a pivotal scene from the story.",
+        "image": "scene1.jpg"
+    }
+]

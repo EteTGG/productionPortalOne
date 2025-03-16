@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Production Portal</title>
+    <title>Character Alignment</title>
     <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-    <link rel="stylesheet" href="static/CSS/style.css">
+    <link rel="stylesheet" href="../static/CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
@@ -50,16 +50,64 @@
                     </ul>
                 </li>
             </ul>
-        </nav>        
+        </nav>      
     </header>
     <main>
         <section>
-            <h2>Welcome to The Production Portal</h2>
-            <p>This wiki is dedicated to my Episode Interactive stories. Here, you'll find character profiles, story summaries, and so much more.</p>
+            <h2>Character Alignment</h2>
+            <p>Discover how characters align in terms of heroism, villainy, and more.</p>
+            <div id="alignment-content"></div>
         </section>
     </main>
-    <footer>
+    <footer style="position: relative;">
         <p>&copy; BookPage Productions™ - 2025</p>
     </footer>
+    <script>
+        fetch('../JSON/characters.json')
+            .then(response => response.json())
+            .then(data => {
+                const alignmentContent = document.getElementById('alignment-content');
+                const categories = {
+                    heroes: [],
+                    villains: [],
+                    neutral: [],
+                    superpowered: [],
+                    mutant: [],
+                    alien: [],
+                    magician: []
+                };
+
+                data.forEach(character => {
+                    if (character.alignment === 'hero') {
+                        categories.heroes.push(character);
+                    } else if (character.alignment === 'villain') {
+                        categories.villains.push(character);
+                    } else if (character.alignment === 'neutral') {
+                        categories.neutral.push(character);
+                    }
+
+                    if (character.type === 'superpowered') {
+                        categories.superpowered.push(character);
+                    } else if (character.type === 'mutant') {
+                        categories.mutant.push(character);
+                    } else if (character.type === 'alien') {
+                        categories.alien.push(character);
+                    } else if (character.type === 'magician') {
+                        categories.magician.push(character);
+                    }
+                });
+
+                Object.keys(categories).forEach(category => {
+                    const categorySection = document.createElement('div');
+                    categorySection.innerHTML = `
+                        <h3>${category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+                        <ul>
+                            ${categories[category].map(character => `<li><a href="#">${character.name}</a></li>`).join('')}
+                        </ul>
+                    `;
+                    alignmentContent.appendChild(categorySection);
+                });
+            });
+    </script>
 </body>
 </html>

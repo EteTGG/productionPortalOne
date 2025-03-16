@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Production Portal</title>
+    <title>Community</title>
     <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-    <link rel="stylesheet" href="static/CSS/style.css">
+    <link rel="stylesheet" href="../static/CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
@@ -50,16 +50,70 @@
                     </ul>
                 </li>
             </ul>
-        </nav>        
+        </nav>      
     </header>
     <main>
         <section>
-            <h2>Welcome to The Production Portal</h2>
-            <p>This wiki is dedicated to my Episode Interactive stories. Here, you'll find character profiles, story summaries, and so much more.</p>
+            <h2>Community</h2>
+            <p>Engage with other fans and discuss your favorite stories.</p>
+            <div id="community-content"></div>
         </section>
     </main>
-    <footer>
+    <footer style="position: relative;">
         <p>&copy; BookPage Productions™ - 2025</p>
     </footer>
+    <script>
+        fetch('../JSON/community.json')
+            .then(response => response.json())
+            .then(data => {
+                const communityContent = document.getElementById('community-content');
+                // Display polls and fun facts here
+                data.forEach(item => {
+                    const itemCard = document.createElement('div');
+                    itemCard.classList.add('community-item');
+                    itemCard.innerHTML = `
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    `;
+                    communityContent.appendChild(itemCard);
+                });
+
+
+                
+                // Add a link to a random page
+                const randomLink = document.createElement('a');
+                randomLink.href = getRandomPage();
+                randomLink.textContent = 'Visit a Random Page!';
+                communityContent.appendChild(randomLink);
+                
+            });
+
+            function getRandomPage() {
+            const pages = [
+                'index.html',
+                'templates/characters.html',
+                'templates/stories.html',
+                'templates/faqs.html',
+                'templates/news.html',
+                'community.html',
+                'locations.html',
+                'chalign.html',
+                'systems.html',
+                'templates/char_main.html',
+                'templates/char_love.html',
+                'templates/char_support.html',
+                'templates/char_side.html',
+                'templates/char_background.html',
+                'templates/stor_standalone.html',
+                'templates/stor_series.html',
+                'templates/stor_comics.html',
+                'templates/stor_other.html',
+                'templates/art.html',
+                'templates/blog.html'
+            ];
+            return pages[Math.floor(Math.random() * pages.length)];
+        }
+
+    </script>
 </body>
 </html>

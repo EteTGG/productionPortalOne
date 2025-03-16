@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories</title>
-    <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
+    <title>Locations</title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
     <link rel="stylesheet" href="../static/CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,15 +16,15 @@
         <p><b>The Production Portal</b> - Behind the scenes, beyond the page.</p>
         <nav>
             <ul>
-                <li><a href="../index.html">EXPLORE</a>
+                <li><a href="index.html">EXPLORE</a>
                     <ul class="dropdown">
-                        <li><a href="../community.html">Community</a></li>
-                        <li><a href="../locations.html">Locations</a></li>
-                        <li><a href="../chalign.html">Character Alignment</a></li>
-                        <li><a href="../systems.html">Fictional Systems</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="chalign.html">Character Alignment</a></li>
+                        <li><a href="systems.html">Fictional Systems</a></li>
                     </ul>
                 </li>
-                <li><a href="characters.html">CHARACTERS</a>
+                <li><a href="templates/characters.html">CHARACTERS</a>
                     <ul class="dropdown">
                         <li><a href="char_main.html">Main Characters</a></li>
                         <li><a href="char_love.html">Love Interests</a></li>
@@ -33,7 +33,7 @@
                         <li><a href="char_background.html">Background Characters</a></li>
                     </ul>
                 </li>
-                <li><a href="stories.html">STORIES</a>
+                <li><a href="templates/stories.html">STORIES</a>
                     <ul class="dropdown">
                         <li><a href="stor_standalone.html">Standalone</a></li>
                         <li><a href="stor_series.html">Series</a></li>
@@ -41,8 +41,8 @@
                         <li><a href="stor_other.html">Other</a></li>
                     </ul>
                 </li>
-                <li><a href="faqs.html">FAQS</a></li>
-                <li><a href="news.html">NEWS</a>
+                <li><a href="templates/faqs.html">FAQS</a></li>
+                <li><a href="templates/news.html">NEWS</a>
                     <ul class="dropdown">
                         <li><a href="news.html">Story Updates</a></li>
                         <li><a href="art.html">Art</a></li>
@@ -50,34 +50,35 @@
                     </ul>
                 </li>
             </ul>
-        </nav>        
+        </nav>      
     </header>
     <main>
         <section>
-            <h2>Stories</h2>
-            <p>Here you'll find summaries and episode guides for my stories.</p>
-            <div id="story-list" class="story-list"></div>
+            <h2>Locations</h2>
+            <p>Explore the worlds and settings of my stories.</p>
+            <div id="locations-content"></div>
         </section>
     </main>
-    <footer>
+    <footer style="position: relative;">
         <p>&copy; BookPage Productions™ - 2025</p>
     </footer>
     <script>
-        fetch('../JSON/stories.json')
+        fetch('../JSON/locations.json')
             .then(response => response.json())
             .then(data => {
-                const storyList = document.getElementById('story-list');
-                data.forEach(story => {
-                    const storyCard = document.createElement('div');
-                    storyCard.classList.add('story-card');
-                    storyCard.innerHTML = `
-                        <h3>${story.title}</h3>
-                        <p>${story.summary}</p>
-                        <ul>
-                            ${story.episodes.map(episode => `<li><a href="${episode.link}">${episode.title}</a></li>`).join('')}
-                        </ul>
+                const locationsContent = document.getElementById('locations-content');
+                data.forEach(location => {
+                    const locationCard = document.createElement('div');
+                    locationCard.classList.add('location-card');
+                    locationCard.innerHTML = `
+                        <h3>${location.name}</h3>
+                        <p>${location.description}</p>
+                        <p><strong>Status:</strong> ${location.status}</p>
+                        <p><strong>Planet:</strong> ${location.planet}</p>
+                        <p><strong>Universe:</strong> ${location.universe}</p>
+                        <p><strong>Dimension:</strong> ${location.dimension}</p>
                     `;
-                    storyList.appendChild(storyCard);
+                    locationsContent.appendChild(locationCard);
                 });
             });
     </script>
