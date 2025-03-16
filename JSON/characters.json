@@ -1,12 +1,60 @@
 [
     {
-        "name": "Character 1 Name",
-        "description": "A brave and adventurous soul.",
-        "image": "character1.jpg"
+        "name": "Character 1",
+        "age": "20",
+        "status": "alive",
+        "description": "A brave hero.",
+        "image": "character1.jpg",
+        "alignment": "hero",
+        "type": "superpowered",
+        "category": "main",
+        "reality number":"U02T01"
     },
     {
-        "name": "Character 2 Name",
-        "description": "A mysterious and intriguing figure.",
-        "image": "character2.jpg"
+        "name": "Character 2",
+        "age": "20",
+        "status": "alive",
+        "description": "A mysterious villain.",
+        "image": "character2.jpg",
+        "alignment": "villain",
+        "type": "mutant",
+        "category": "love-interests",
+        "reality number":"U02T01"
+        
+    },
+    {
+        "name": "Character 3",
+        "age": "20",
+        "status": "alive",
+        "description": "A timetraveller",
+        "image": "character3.jpg",
+        "alignment": "neutral",
+        "type": "magicuser",
+        "category": "background",
+        "reality number":"U02T01"
+        
+    },
+    {
+        "name": "Character 4",
+        "age": "20",
+        "status": "alive",
+        "description": "A background character with a rich history.",
+        "image": "character4.jpg",
+        "alignment": "villain",
+        "type": "mutant",
+        "category": "side",
+        "reality number":"U02T01"
+    },
+    {
+        "name": "Character 5",
+        "age": "20",
+        "status": "alive",
+        "description": "A mysterious villain.",
+        "image": "character5.jpg",
+        "alignment": "hero",
+        "type": "alien",
+        "category": "supporting",
+        "reality number":"U02T01"
+        
     }
 ]

@@ -4,24 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQs</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
     <link rel="stylesheet" href="../static/CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url('../static/images/newbanner.png'); background-size: cover; opacity: 95%; background-blend-mode: lighten; background-color: rgba(255, 255, 255, 0.527);">
     <header>
-        <h1>The Production Portal</h1>
-        <p>Behind the scenes, beyond the page.</p>
+        <a href="../index.html"><img width= 25% class="mainlogo" src="../static/images/BookPageProductions_LogoVerticalOUTLINE.png" alt="BookPage Productions Logo"><a href="../index.html"></a>
+        <p><b>The Production Portal</b> - Behind the scenes, beyond the page.</p>
         <nav>
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="characters.html">Characters</a></li>
-                <li><a href="stories.html">Stories</a></li>
-                <li><a href="faqs.html">FAQs</a></li>
-                <li><a href="updates.html">Updates</a></li>
+                <li><a href="../index.html">EXPLORE</a>
+                    <ul class="dropdown">
+                        <li><a href="../community.html">Community</a></li>
+                        <li><a href="../locations.html">Locations</a></li>
+                        <li><a href="../chalign.html">Character Alignment</a></li>
+                        <li><a href="../systems.html">Fictional Systems</a></li>
+                    </ul>
+                </li>
+                <li><a href="characters.html">CHARACTERS</a>
+                    <ul class="dropdown">
+                        <li><a href="char_main.html">Main Characters</a></li>
+                        <li><a href="char_love.html">Love Interests</a></li>
+                        <li><a href="char_support.html">Supporting Characters</a></li>
+                        <li><a href="char_side.html">Side Characters</a></li>
+                        <li><a href="char_background.html">Background Characters</a></li>
+                    </ul>
+                </li>
+                <li><a href="stories.html">STORIES</a>
+                    <ul class="dropdown">
+                        <li><a href="stor_standalone.html">Standalone</a></li>
+                        <li><a href="stor_series.html">Series</a></li>
+                        <li><a href="stor_comics.html">Comics</a></li>
+                        <li><a href="stor_other.html">Other</a></li>
+                    </ul>
+                </li>
+                <li><a href="faqs.html">FAQS</a></li>
+                <li><a href="news.html">NEWS</a>
+                    <ul class="dropdown">
+                        <li><a href="news.html">Story Updates</a></li>
+                        <li><a href="art.html">Art</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </li>
             </ul>
-        </nav>
+        </nav>               
     </header>
     <main>
         <section>
@@ -29,17 +58,25 @@
             <p>Here are answers to some common questions about my stories.</p>
             <div id="faq-list" class="faq-list"></div>
             <h3>Ask a Question, or leave a message!</h3>
+            <p>Good and/or frequently asked questions will be added to this page. Other messages will be kept to heart, Anything is appreciated!</p>
             <form id="question-form" action="https://formspree.io/f/xaneyzgv" method="post">
-                <input type="text" id="question" placeholder="Your question">
-                <textarea id="additional-info" placeholder="Any additional information/Your personal message"></textarea>
-                <button type="submit">Submit</button>
-            </form>
+                <input type="text" id="name" name="name" placeholder="Your name (optional)">
+                <input type="text" id="question" name="question" placeholder="Your question">
+                <textarea id="additional-info" name="additionalInfo" placeholder="Any additional information/Your personal message"></textarea>
+                <br/>
+                <button type="submit" id="send-button">SEND</button>
+            </form>                      
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Your Name</p>
+        <p>&copy; BookPage Productions™ - 2025</p>
     </footer>
     <script>
+        document.getElementById('question-form').addEventListener('submit', function() {
+        setTimeout(() => {
+            this.reset();
+        }, 500); // Reset form after 500ms
+    });
         fetch('../JSON/faqs.json')
             .then(response => response.json())
             .then(data => {
@@ -54,25 +91,6 @@
                     faqList.appendChild(faqItem);
                 });
             });
-
-        document.getElementById('question-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const question = document.getElementById('question').value;
-            const additionalInfo = document.getElementById('additional-info').value;
-            // Send data to server or email using AJAX or fetch API
-            // For now, just log the data
-            console.log('Question:', question);
-            console.log('Additional Info:', additionalInfo);
-            // Example of sending data via email (requires backend setup)
-            // fetch('/send-email', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ question, additionalInfo })
-            // })
-            // .then(response => response.json())
-            // .then(data => console.log(data))
-            // .catch(error => console.error('Error:', error));
-        });
     </script>
 </body>
 </html>
